@@ -24,18 +24,27 @@ void printAnimal(const char *format, ...)
     char *str = NULL;
     int i;
 
+
+    /* Check If Format Exists */
+
     if (format == NULL)
     {
         exit(98);
     }
 
+    /* Check For Null Byte*/
+
     while (*format != '\0')
     {
+
+        /* Check For % To Initiate Format */
 
         if (*format == '%')
         {
 
             format++;
+
+            /* Check For Format Specifier */
 
             switch (*format)
             {
@@ -50,16 +59,22 @@ void printAnimal(const char *format, ...)
                     break;
             }
 
+        /* What If No %? */
+
         } else if (*format != '%')
 
         {
             str = "N/A";
         }
 
+        /* Print String */
+
         for (i = 0; str[i] != '\0'; i++)
         {
             _putchar(str[i]);
         }
+
+        /* Iterate */
 
         _putchar('\n');
         format++;
